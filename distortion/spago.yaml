@@ -20,10 +20,3 @@ package:
       - keytype: ssh-rsa
         public: AAAAB3NzaC1yc2EAAAADAQABAAABAQCY1Gdnnq2tNSrBxKnxuLfSsl7sLjCU5Js9c3tW9/x12tA4g1grIOezpBAszHUr40XuzGMHwmd3i3iq45ORhNJeq8lbgp8I5Zc3Kv+nugSqPHWLVIfa3dwktBYpUaDIwurPZsiQwXL/QJLMwSFKLn4DK8ZctMv+8Uy123Z4rlLNfZ8obaP9odtpegNtcCJ7tHFyg0EsgFpYYZHWJd2fzB9m9YW0Hziyyc/bknOwiwCcjiLUKaSPIE/8UgiPJx1mvKopd65PbqZf093lhHl3TesWF5pqeS5esCOaBUkL6UHeQMiQGnlt/VHMvIQaXNa33RoR8luZtDmUolgXi221xrNX
         id: june@sideros.rocks
-workspace:
-  packageSet:
-    registry: 64.6.0
-  extraPackages:
-    my-spec-reporter:
-      git: https://github.com/UnrelatedString/my-spec-reporter.git
-      ref: main
