@@ -1,0 +1,25 @@
+{
+  "name": "create-distortion-app",
+  "version": "0.0.1",
+  "description": "Template for Discord applications using the PureScript `distortion` framework",
+  "keywords": [
+    "discord",
+    "purescript",
+    "npm-init"
+  ],
+  "homepage": "https://github.com/UnrelatedString/distortion#readme",
+  "bugs": {
+    "url": "https://github.com/UnrelatedString/distortion/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/UnrelatedString/distortion.git"
+  },
+  "license": "MPL-2.0",
+  "author": "UnrelatedString",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo Work in progress"
+  }
+}
