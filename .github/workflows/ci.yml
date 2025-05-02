@@ -3,7 +3,7 @@ on: [push]
 
 jobs:
 
-  test-ps-distortion:
+  test-purs-distortion:
     runs-on: ubuntu-latest
 
     steps:
@@ -25,7 +25,7 @@ jobs:
       - name: Test
         run: spago test -p distortion --strict
 
-  test-ps-distortion-discord-js:
+  test-purs-distortion-discord-js:
     runs-on: ubuntu-latest
 
     steps:
