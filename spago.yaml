@@ -3,6 +3,8 @@ package:
   description: Runner-agnostic framework for creating Discord applications
   dependencies:
     - prelude: ">=6.0.2 <7.0.0"
+    - free: ">=7.1.0 <8.0.0"
+    - transformers: ">=6.1.0 <7.0.0"
   test:
     main: Test.Main
     dependencies:
@@ -23,7 +25,7 @@ package:
 
 workspace:
   packageSet:
-    registry: 63.5.0
+    registry: 64.6.1
   extraPackages:
     my-spec-reporter:
       git: https://github.com/UnrelatedString/my-spec-reporter.git
