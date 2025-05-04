@@ -92,6 +92,10 @@ fromInstant = fromUnix <<< Instant.uninstant
 
 -- | A universal string representation of snowflakes,
 -- | for use by JSON-based runners.
+-- | Note that while the constructor is intentionally not exposed,
+-- | the main way of obtaining `StringSnowflake`s is intended
+-- | to be through foreign declarations or `unsafeCoerce`
+-- | from unvalidated trusted JSON payloads.
 
 newtype StringSnowflake = StringSnowflake String
 
