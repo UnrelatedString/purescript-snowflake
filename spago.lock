@@ -6,11 +6,79 @@
         "core": {
           "dependencies": [
             {
+              "datetime": ">=6.1.0 <7.0.0"
+            },
+            {
+              "enums": ">=6.0.1 <7.0.0"
+            },
+            {
+              "foldable-traversable": ">=6.0.0 <7.0.0"
+            },
+            {
+              "free": ">=7.1.0 <8.0.0"
+            },
+            {
+              "integers": ">=6.0.0 <7.0.0"
+            },
+            {
+              "maybe": ">=6.0.0 <7.0.0"
+            },
+            {
+              "partial": ">=4.0.0 <5.0.0"
+            },
+            {
               "prelude": ">=6.0.2 <7.0.0"
+            },
+            {
+              "strings": ">=6.0.1 <7.0.0"
+            },
+            {
+              "transformers": ">=6.1.0 <7.0.0"
             }
           ],
           "build_plan": [
-            "prelude"
+            "arrays",
+            "bifunctors",
+            "catenable-lists",
+            "const",
+            "contravariant",
+            "control",
+            "datetime",
+            "distributive",
+            "effect",
+            "either",
+            "enums",
+            "exceptions",
+            "exists",
+            "foldable-traversable",
+            "free",
+            "functions",
+            "functors",
+            "gen",
+            "identity",
+            "integers",
+            "invariant",
+            "lazy",
+            "lists",
+            "maybe",
+            "newtype",
+            "nonempty",
+            "numbers",
+            "ordered-collections",
+            "orders",
+            "partial",
+            "prelude",
+            "profunctor",
+            "refs",
+            "safe-coerce",
+            "st",
+            "strings",
+            "tailrec",
+            "transformers",
+            "tuples",
+            "type-equality",
+            "unfoldable",
+            "unsafe-coerce"
           ]
         },
         "test": {
@@ -42,6 +110,7 @@
             "exceptions",
             "exists",
             "exitcodes",
+            "filterable",
             "foldable-traversable",
             "foreign",
             "foreign-object",
@@ -82,6 +151,7 @@
             "prelude",
             "profunctor",
             "quickcheck",
+            "quickcheck-laws",
             "random",
             "record",
             "refs",
@@ -92,6 +162,7 @@
             "st",
             "strings",
             "tailrec",
+            "these",
             "transformers",
             "trivial-unfold",
             "tuples",
@@ -105,7 +176,7 @@
     },
     "package_set": {
       "address": {
-        "registry": "63.5.0"
+        "registry": "64.6.1"
       },
       "compiler": ">=0.15.15 <0.16.0",
       "content": {
@@ -145,7 +216,8 @@
         "b64": "0.0.8",
         "barbies": "1.0.1",
         "barlow-lens": "0.9.0",
-        "bifunctors": "6.0.0",
+        "benchlib": "0.0.4",
+        "bifunctors": "6.1.0",
         "bigints": "7.0.1",
         "bolson": "0.3.9",
         "bookhound": "0.1.7",
@@ -224,8 +296,10 @@
         "exists": "6.0.0",
         "exitcodes": "4.0.0",
         "expect-inferred": "3.0.0",
+        "express": "0.9.1",
         "ezfetch": "1.1.0",
         "fahrtwind": "2.0.0",
+        "fakerjs": "0.0.1",
         "fallback": "0.1.0",
         "fast-vect": "1.2.0",
         "fetch": "4.1.0",
@@ -264,7 +338,9 @@
         "generic-router": "0.0.1",
         "geojson": "0.0.5",
         "geometria": "2.2.0",
+        "gesso": "1.0.0",
         "gojs": "0.1.1",
+        "golem-fetch": "0.1.0",
         "grain": "3.0.0",
         "grain-router": "3.0.0",
         "grain-virtualized": "3.0.0",
@@ -274,9 +350,10 @@
         "halogen-bootstrap5": "5.3.2",
         "halogen-canvas": "1.0.0",
         "halogen-css": "10.0.0",
+        "halogen-declarative-canvas": "0.0.8",
         "halogen-echarts-simple": "0.0.4",
         "halogen-formless": "4.0.3",
-        "halogen-helix": "1.0.1",
+        "halogen-helix": "1.1.0",
         "halogen-hooks": "0.6.3",
         "halogen-hooks-extra": "0.9.0",
         "halogen-infinite-scroll": "1.1.0",
@@ -285,6 +362,7 @@
         "halogen-subscriptions": "2.0.0",
         "halogen-svg-elems": "8.0.0",
         "halogen-typewriter": "1.0.4",
+        "halogen-use-trigger-hooks": "1.0.0",
         "halogen-vdom": "8.0.0",
         "halogen-vdom-string-renderer": "0.5.0",
         "halogen-xterm": "2.0.0",
@@ -478,11 +556,13 @@
         "recharts": "1.1.0",
         "record": "4.0.0",
         "record-extra": "5.0.1",
+        "record-extra-srghma": "0.1.1",
         "record-ptional-fields": "0.1.2",
         "record-studio": "1.0.4",
         "refs": "6.0.0",
         "remotedata": "5.0.1",
         "repr": "0.5.0",
+        "resize-arrays": "0.0.1",
         "resize-observer": "1.0.0",
         "resource": "2.0.1",
         "resourcet": "1.0.0",
@@ -551,7 +631,7 @@
         "transformation-matrix": "1.0.1",
         "transformers": "6.1.0",
         "tree-rose": "4.0.2",
-        "trivial-unfold": "0.4.1",
+        "trivial-unfold": "0.5.0",
         "ts-bridge": "4.0.0",
         "tuples": "7.0.0",
         "two-or-more": "1.0.0",
@@ -580,11 +660,13 @@
         "untagged-union": "1.0.0",
         "uri": "9.0.0",
         "url-immutable": "1.0.0",
+        "url-regex-safe": "0.1.1",
         "uuid": "9.0.0",
         "uuidv4": "1.0.0",
         "validation": "6.0.0",
         "variant": "8.0.0",
         "variant-encodings": "2.0.0",
+        "variant-gen": "1.0.0",
         "vectorfield": "1.0.1",
         "vectors": "2.1.0",
         "versions": "7.0.0",
@@ -618,7 +700,7 @@
         "webextension-polyfill": "0.1.0",
         "webgpu": "0.0.1",
         "which": "2.0.0",
-        "whine-core": "0.0.28",
+        "whine-core": "0.0.30",
         "xterm": "1.0.0",
         "yoga-fetch": "1.0.1",
         "yoga-json": "5.1.0",
@@ -750,8 +832,8 @@
     },
     "bifunctors": {
       "type": "registry",
-      "version": "6.0.0",
-      "integrity": "sha256-/gZwC9YhNxZNQpnHa5BIYerCGM2jeX9ukZiEvYxm5Nw=",
+      "version": "6.1.0",
+      "integrity": "sha256-6enQzl1vqnFTQZ1WX9BnoOOVdPGO9WZvVXldHckVQvY=",
       "dependencies": [
         "const",
         "either",
@@ -910,6 +992,19 @@
       "integrity": "sha256-4wxViTbyOoyKJ/WaRGI6+hZmgMKI5Miv16lSwefiLSM=",
       "dependencies": [
         "enums"
+      ]
+    },
+    "filterable": {
+      "type": "registry",
+      "version": "5.0.0",
+      "integrity": "sha256-cCojJHRnTmpY1j1kegI4CFwghdQ2Fm/8dzM8IlC+lng=",
+      "dependencies": [
+        "arrays",
+        "either",
+        "foldable-traversable",
+        "identity",
+        "lists",
+        "ordered-collections"
       ]
     },
     "foldable-traversable": {
@@ -1492,6 +1587,15 @@
         "unfoldable"
       ]
     },
+    "quickcheck-laws": {
+      "type": "registry",
+      "version": "7.0.0",
+      "integrity": "sha256-rnzVTiDnymzYkvnhI8EvPwrmO8LgcTnrMTuiI172Tkc=",
+      "dependencies": [
+        "enums",
+        "quickcheck"
+      ]
+    },
     "random": {
       "type": "registry",
       "version": "6.0.0",
@@ -1659,6 +1763,19 @@
         "refs"
       ]
     },
+    "these": {
+      "type": "registry",
+      "version": "6.0.0",
+      "integrity": "sha256-6poQvFzGw7Ir9mTDEbFV9N6+cUeSHe0FdzTR2ZK1o6g=",
+      "dependencies": [
+        "arrays",
+        "gen",
+        "lists",
+        "quickcheck",
+        "quickcheck-laws",
+        "tuples"
+      ]
+    },
     "transformers": {
       "type": "registry",
       "version": "6.1.0",
@@ -1683,19 +1800,23 @@
     },
     "trivial-unfold": {
       "type": "registry",
-      "version": "0.4.1",
-      "integrity": "sha256-WKIA+RuZBjr1ucs8qM1V+Pccq++gnw5l5RA9P4b2P+4=",
+      "version": "0.5.0",
+      "integrity": "sha256-WwmlucIeCdWREVKr7o8qW3d/ZDCBDXabellE3/2a7sA=",
       "dependencies": [
         "bifunctors",
         "control",
+        "either",
         "enums",
         "exists",
+        "filterable",
         "foldable-traversable",
         "invariant",
         "maybe",
         "newtype",
         "prelude",
+        "profunctor",
         "quickcheck",
+        "these",
         "tuples",
         "unfoldable"
       ]
