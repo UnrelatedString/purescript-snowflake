@@ -15,14 +15,17 @@ module Distortion.Snowflake
 
 import Prelude
 
+import Data.Array as Array
 import Data.DateTime.Instant as Instant
-import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum)
+import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum, fromEnum)
 import Data.Foldable (any)
-import Data.Int (toNumber, ceil, fromString)
+import Data.FoldableWithIndex (class FoldableWithIndex, foldrWithIndex)
+import Data.Int (toNumber, ceil, fromString, pow)
 import Data.Maybe (Maybe(..), fromJust)
-import Data.String.CodePoints (toCodePointArray, codePointFromChar)
+import Data.String.CodePoints (toCodePointArray, codePointFromChar, fromCodePointArray)
 import Data.String.CodePoints as String
 import Data.Time.Duration (Milliseconds(..))
+import Data.Traversable (traverse)
 import Partial.Unsafe (unsafePartial)
 
 -- | A class for types which represent Discord "snowflake" IDs,
@@ -105,10 +108,14 @@ instance Snowflake StringSnowflake where
       (\c -> c < codePointFromChar '0' || c > codePointFromChar '9')
       (toCodePointArray s)
       = Nothing
-    | String.dropWhile (_ == codePointFromChar '0') s > "4398046511103" = Nothing
+    | fromCodePointArray (Array.reverse $ toCodePointArray s) >= "61615590737044764481"
+      = Nothing
     | otherwise = Just s
 
   -- could just do this with bigints... but 1. portability and 2. sunk cost :p
   toTimestamp (StringSnowflake s) = unsafePartial $ fromJust do
-    let splitPlace = 10 -- kinda arbitrary; just has to fit in JS number
-    let { before: high, after: low } = String.splitAt splitPlace
+    digits <- traverse (fromString <<< String.singleton) $ toCodePointArray s
+    -- max 20 digits if well-formed, so it can't ever over-divide
+    let safe = baseFiveHalves $ fromEnum <$> digits
+
+    where baseFiveHalves :: 
