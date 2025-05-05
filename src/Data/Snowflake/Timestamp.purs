@@ -9,19 +9,13 @@ module Data.Snowflake.Timestamp
 
 import Prelude
 
-import Data.Array as Array
 import Data.DateTime.Instant as Instant
-import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum, fromEnum)
-import Data.Foldable (any)
+import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum)
 import Data.Generic.Rep (class Generic)
-import Data.Int (toNumber, ceil, fromString, pow)
-import Data.Maybe (Maybe(..), fromJust)
+import Data.Int (toNumber, ceil)
+import Data.Maybe (Maybe(..))
 import Data.Show.Generic (genericShow)
-import Data.String.CodePoints (toCodePointArray, codePointFromChar, fromCodePointArray)
-import Data.String.CodePoints as String
 import Data.Time.Duration (Milliseconds(..))
-import Data.Traversable (traverse)
-import Partial.Unsafe (unsafePartial)
 
 -- | Timestamps contained by snowflakes,
 -- | which can be inspected to determine the time of the referenced entity's creation,
