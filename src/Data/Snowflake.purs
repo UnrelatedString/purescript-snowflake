@@ -14,8 +14,11 @@ import Data.DateTime.Instant as Instant
 import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum, fromEnum)
 import Data.Foldable (any)
 import Data.FoldableWithIndex (class FoldableWithIndex, foldrWithIndex)
+import Data.Generic.Rep (class Generic)
 import Data.Int (toNumber, ceil, fromString, pow)
 import Data.Maybe (Maybe(..), fromJust)
+import Data.Newtype (unwrap)
+import Data.Show.Generic (genericShow)
 import Data.String.CodePoints (toCodePointArray, codePointFromChar, fromCodePointArray)
 import Data.String.CodePoints as String
 import Data.Time.Duration (Milliseconds(..))
@@ -23,7 +26,11 @@ import Data.Traversable (traverse)
 import JS.BigInt as BigInt -- just change this to a second Data.Int import for Purerl :p
 import Partial.Unsafe (unsafePartial)
 
-import Data.Snowflake.Timestamp (Timestamp(..))
+import Data.Snowflake.Timestamp
+  (Timestamp
+  , toMillisecondsFromEpoch
+  , unsafeFromMilliseconds
+  )
 
 -- | A class for types which represent Discord "snowflake" IDs,
 -- | which are inherently 64-bit integers and can be accessed as such if
@@ -51,7 +58,10 @@ newtype StringSnowflake = StringSnowflake String
 
 derive newtype instance stringSnowflakeEq :: Eq StringSnowflake
 derive newtype instance stringSnowflakeOrd :: Ord StringSnowflake
-derive instance stringSnowflakeShow :: Show StringSnowflake
+derive instance stringSnowflakeGeneric :: Generic StringSnowflake _
+
+instance stringSnowFlakeShow :: Show StringSnowflake where
+  show = genericShow
 
 instance Snowflake StringSnowflake where
   toBase10 (StringSnowflake s) = s
@@ -64,7 +74,7 @@ instance Snowflake StringSnowflake where
       = Nothing
     | fromCodePointArray (Array.reverse $ toCodePointArray s) >= "61615590737044764481"
       = Nothing
-    | otherwise = Just s
+    | otherwise = Just $ StringSnowflake s
 
   -- | Will error at runtime if given a malformed snowflake!
   -- | Only construct snowflakes from trusted foreign data or
@@ -72,11 +82,15 @@ instance Snowflake StringSnowflake where
   toTimestamp (StringSnowflake s) = unsafePartial $ fromJust do
     value <- BigInt.fromString s
     let timestampBits = BigInt.shr value shift
-    timestampInt <- BigInt.toInt timestampBits
-    pure $ Timestamp timestampBits
+    let timestampNumber = BigInt.toNumber timestampBits -- oh yeah lmao
+    pure $ unsafeFromMilliseconds $ Milliseconds timestampNumber
   
-  fromTimestamp (Timestamp t)
+  fromTimestamp t
     = StringSnowflake
     $ BigInt.toString
     $ flip BigInt.shl shift
-    $ BigInt.fromInt t
+    $ unsafePartial
+    $ fromJust
+    $ BigInt.fromNumber
+    $ unwrap
+    $ toMillisecondsFromEpoch t
