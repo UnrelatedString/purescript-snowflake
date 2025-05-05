@@ -10,19 +10,12 @@ module Data.Snowflake
 import Prelude
 
 import Data.Array as Array
-import Data.DateTime.Instant as Instant
-import Data.Enum (class Enum, class BoundedEnum, Cardinality(..), toEnum, fromEnum)
+
 import Data.Foldable (any)
-import Data.FoldableWithIndex (class FoldableWithIndex, foldrWithIndex)
-import Data.Generic.Rep (class Generic)
-import Data.Int (toNumber, ceil, fromString, pow)
 import Data.Maybe (Maybe(..), fromJust)
 import Data.Newtype (unwrap)
-import Data.Show.Generic (genericShow)
 import Data.String.CodePoints (toCodePointArray, codePointFromChar, fromCodePointArray)
-import Data.String.CodePoints as String
 import Data.Time.Duration (Milliseconds(..))
-import Data.Traversable (traverse)
 import JS.BigInt as BigInt -- just change this to a second Data.Int import for Purerl :p
 import Partial.Unsafe (unsafePartial)
 
@@ -58,10 +51,9 @@ newtype StringSnowflake = StringSnowflake String
 
 derive newtype instance stringSnowflakeEq :: Eq StringSnowflake
 derive newtype instance stringSnowflakeOrd :: Ord StringSnowflake
-derive instance stringSnowflakeGeneric :: Generic StringSnowflake _
 
-instance stringSnowFlakeShow :: Show StringSnowflake where
-  show = genericShow
+instance stringSnowflakeShow :: Show StringSnowflake where
+  show (StringSnowflake s) = "(StringSnowflake " <> show s <> ")"
 
 instance Snowflake StringSnowflake where
   toBase10 (StringSnowflake s) = s

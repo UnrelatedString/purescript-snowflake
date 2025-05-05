@@ -14,10 +14,8 @@ import Prelude
 
 import Data.DateTime.Instant as Instant
 import Data.Enum (class Enum)
-import Data.Generic.Rep (class Generic)
 import Data.Maybe (Maybe(..))
 import Data.Number as Number
-import Data.Show.Generic (genericShow)
 import Data.Time.Duration (Milliseconds(..), negateDuration)
 
 -- | Timestamps contained by snowflakes,
@@ -30,10 +28,9 @@ newtype Timestamp = Timestamp Milliseconds
 
 derive newtype instance eqTimestamp :: Eq Timestamp
 derive newtype instance ordTimestamp :: Ord Timestamp
-derive instance genericTimestamp :: Generic Timestamp _
 
 instance showTimestamp :: Show Timestamp where
-  show = genericShow
+  show (Timestamp m) = "(Timestamp " <> show m <> ")"
 
 instance boundedTimestamp :: Bounded Timestamp where
   bottom = Timestamp $ Milliseconds 0.0
