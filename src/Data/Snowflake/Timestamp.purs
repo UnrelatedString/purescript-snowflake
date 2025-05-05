@@ -1,10 +1,5 @@
-module Data.Snowflake
-  ( class Snowflake
-  , toBase10
-  , fromBase10
-  , toTimestamp
-  , fromTimestamp
-  , SnowflakeTimestamp
+module Data.Snowflake.Timestamp
+  ( SnowflakeTimestamp
   , discordEpoch
   , toUnix
   , fromUnix
