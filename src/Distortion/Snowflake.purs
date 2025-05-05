@@ -1,4 +1,4 @@
-module Distortion.Snowflake
+module Data.Snowflake
   ( class Snowflake
   , toBase10
   , fromBase10

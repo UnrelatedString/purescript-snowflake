@@ -1,17 +1,15 @@
 package:
-  name: distortion
-  description: Runner-agnostic framework for creating Discord applications
+  name: snowflake
+  description: Utilities for Snowflake IDs as used by Twitter, Discord, etc. 
   dependencies:
     - prelude: ">=6.0.2 <7.0.0"
     - datetime: ">=6.1.0 <7.0.0"
     - enums: ">=6.0.1 <7.0.0"
     - foldable-traversable: ">=6.0.0 <7.0.0"
-    - free: ">=7.1.0 <8.0.0"
     - integers: ">=6.0.0 <7.0.0"
     - maybe: ">=6.0.0 <7.0.0"
     - partial: ">=4.0.0 <5.0.0"
     - strings: ">=6.0.1 <7.0.0"
-    - transformers: ">=6.1.0 <7.0.0"
   test:
     main: Test.Main
     dependencies:
@@ -24,7 +22,7 @@ package:
     license: MPL-2.0
     location:
       githubOwner: UnrelatedString
-      githubRepo: distortion
+      githubRepo: purescript-snowflake
     owners:
       - keytype: ssh-rsa
         public: AAAAB3NzaC1yc2EAAAADAQABAAABAQCY1Gdnnq2tNSrBxKnxuLfSsl7sLjCU5Js9c3tW9/x12tA4g1grIOezpBAszHUr40XuzGMHwmd3i3iq45ORhNJeq8lbgp8I5Zc3Kv+nugSqPHWLVIfa3dwktBYpUaDIwurPZsiQwXL/QJLMwSFKLn4DK8ZctMv+8Uy123Z4rlLNfZ8obaP9odtpegNtcCJ7tHFyg0EsgFpYYZHWJd2fzB9m9YW0Hziyyc/bknOwiwCcjiLUKaSPIE/8UgiPJx1mvKopd65PbqZf093lhHl3TesWF5pqeS5esCOaBUkL6UHeQMiQGnlt/VHMvIQaXNa33RoR8luZtDmUolgXi221xrNX
